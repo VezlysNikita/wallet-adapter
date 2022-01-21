@@ -14,6 +14,8 @@ export interface Wallet {
     readyState: WalletReadyState;
 }
 
+console.log(PublicKey)
+
 export interface WalletContextState {
     autoConnect: boolean;
     wallets: Wallet[];
@@ -22,6 +24,7 @@ export interface WalletContextState {
     connecting: boolean;
     connected: boolean;
     disconnecting: boolean;
+
 
     select(walletName: WalletName): void;
     connect(): Promise<void>;

@@ -11,6 +11,8 @@ export interface WalletAdapterEvents {
     readyStateChange(readyState: WalletReadyState): void;
 }
 
+
+
 export interface SendTransactionOptions extends SendOptions {
     signers?: Signer[];
 }
@@ -18,6 +20,10 @@ export interface SendTransactionOptions extends SendOptions {
 // WalletName is a nominal type that wallet adapters should use, e.g. `'MyCryptoWallet' as WalletName`
 // https://medium.com/@KevinBGreene/surviving-the-typescript-ecosystem-branding-and-type-tagging-6cf6e516523d
 export type WalletName = string & { __brand__: 'WalletName' };
+
+
+
+
 
 export interface WalletAdapterProps {
     name: WalletName;
@@ -27,6 +33,8 @@ export interface WalletAdapterProps {
     publicKey: PublicKey | null;
     connecting: boolean;
     connected: boolean;
+
+    
 
     connect(): Promise<void>;
     disconnect(): Promise<void>;
@@ -68,6 +76,7 @@ export enum WalletReadyState {
     Unsupported = 'Unsupported',
 }
 
+
 export abstract class BaseWalletAdapter extends EventEmitter<WalletAdapterEvents> implements WalletAdapter {
     abstract name: WalletName;
     abstract url: string;
@@ -75,6 +84,7 @@ export abstract class BaseWalletAdapter extends EventEmitter<WalletAdapterEvents
     abstract readyState: WalletReadyState;
     abstract publicKey: PublicKey | null;
     abstract connecting: boolean;
+
 
     get connected(): boolean {
         return !!this.publicKey;

@@ -1,7 +1,7 @@
 @import './reset.css';
 
 html, body {
-    background: #333333;
+    background: #b8956d;
     color: #FFFFFF;
 }
 
@@ -9,6 +9,9 @@ html, body {
     width: 100vw;
     height: 100vh;
     display: flex;
-    justify-content: center;
+    justify-content: right;
     align-items: center;
+    position:absolute;
+    top: -40%;
+    right: 4%;
 }
